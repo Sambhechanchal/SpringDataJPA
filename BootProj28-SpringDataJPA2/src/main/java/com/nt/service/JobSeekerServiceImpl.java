@@ -20,5 +20,10 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
 		
 		return "JobSeeker object is saved :: "+ job.getJsid();
 	}
-
+	
+	@Override
+	public Iterable<JobSeeker> showAllJobSeeker() {
+		
+		return jobRepo.findAll();
+	}
 }

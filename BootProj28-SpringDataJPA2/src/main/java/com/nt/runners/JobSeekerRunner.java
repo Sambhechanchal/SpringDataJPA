@@ -17,8 +17,11 @@ public class JobSeekerRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("JobSeekerRunner.run()");
 		JobSeeker job= new JobSeeker("chanchal","hyd","BE(CSE)",90000.0f);
-		String msg = seeker.regiterJobSeeker(job);
-		System.out.println(msg);
+		//String msg = seeker.regiterJobSeeker(job);
+		Iterable<JobSeeker> list = seeker.showAllJobSeeker();
+		list.forEach(System.out::println);
+		//System.out.println(msg);
 	}
+	
 
 }
