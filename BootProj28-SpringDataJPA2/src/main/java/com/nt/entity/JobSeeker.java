@@ -22,7 +22,7 @@ public class JobSeeker {
 	
 	@Column(name="JS_JSID")
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer jsid;
 	
 	@Column(length=30, name="JS_JSNAME")
