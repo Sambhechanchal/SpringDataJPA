@@ -96,4 +96,59 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
 			 return "JobSeeker object is not found";
 		 }
 	}
-}
+	 
+	 @Override
+	public String removeJsById(int id) {
+		Optional<JobSeeker> opt = jobRepo.findById(id);
+		//if(jobRepo.existById(id)){           //--> we can use this also
+		if(opt.isPresent()) {
+			//jobRepo.deleteById(id);
+			jobRepo.delete(opt.get());
+			return "JobSeeker Object is found and deleted";
+		}
+		else {
+			return "JobSeeker Object is not found for deletion";
+		}
+	}
+	 
+	 @Override
+	public String removeAllJsByIds(Iterable<Integer> ids) {
+		Iterable<JobSeeker> listJs = jobRepo.findAllById(ids);
+		long count =StreamSupport.stream(listJs.spliterator(), false).count();
+		jobRepo.deleteAllById(ids);
+		
+		return count +"no. of records are deleted";
+	}
+	 
+	 @Override
+	public String removeAllJobSeeker(Iterable<Integer> ids) {
+		Iterable<JobSeeker> list= jobRepo.findAllById(ids);
+		long count =StreamSupport.stream(list.spliterator(), false).count();
+		jobRepo.deleteAll(list);
+		return count +" no. of JobSeeker oject is deleted on the basis of their ids";
+	}
+	 @Override
+	public String removeAll() {
+		long count = jobRepo.count();
+		if(count>0) {
+		jobRepo.deleteAll();
+		return count+ " no of records are deleted";
+		}else {
+			return "Record not found for deletion";
+		}
+	}
+
+	@Override
+	public String removeJsByIdObj(int id) {
+		Optional<JobSeeker> opt = jobRepo.findById(id); 
+		if(opt.isPresent()) { 
+			//delete methods by passing only one object
+			jobRepo.delete(opt.get());
+			return "JobSeeker Object is found and deleted"; 
+		} else {
+				return "JobSeeker Object is not found for deletion";
+				}
+		}
+		
+	}
+

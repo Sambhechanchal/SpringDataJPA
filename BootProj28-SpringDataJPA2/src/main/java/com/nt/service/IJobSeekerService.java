@@ -16,5 +16,11 @@ public interface IJobSeekerService {
 	public boolean showJobSeekerExistsById(int id);
 	public JobSeeker getJobseekerById(int id);
 	public String insertOrUpdateJSeeker(int id , String addrs);
+	public String removeJsById(int id);
+	public String removeAllJsByIds(Iterable<Integer> ids);
+	public String removeAllJobSeeker(Iterable<Integer> ids);
+	public String removeAll();
+	public String removeJsByIdObj(int id);
+	
 	
 }

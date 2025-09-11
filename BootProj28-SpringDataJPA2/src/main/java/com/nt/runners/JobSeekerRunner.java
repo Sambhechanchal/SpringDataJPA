@@ -1,6 +1,6 @@
 package com.nt.runners;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -61,8 +61,39 @@ public class JobSeekerRunner implements CommandLineRunner {
 		}
 		*/
 		
+		/*
 		String msg = seeker.insertOrUpdateJSeeker(1001, "Amravati");
 		System.out.println(msg);
+		*/
+		/*
+		String msg = seeker.removeJsById(1001);
+		System.out.println(msg);
+		*/
+		/*
+		try {
+			String msg = seeker.removeAllJsByIds(List.of(1,2,50));
+			System.out.println(msg);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		/*
+		try {
+			String msg = seeker.removeAllJobSeeker(List.of(52,1,2,1102));
+			System.out.println(msg);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		
+		try {
+			String msg  = seeker.removeAll();
+			System.out.println(msg);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}// main
 	
 
