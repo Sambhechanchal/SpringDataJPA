@@ -21,6 +21,7 @@ public interface IJobSeekerService {
 	public String removeAllJobSeeker(Iterable<Integer> ids);
 	public String removeAll();
 	public String removeJsByIdObj(int id);
+	public String regiterChunkOfJobSeeker(Iterable<JobSeeker> js);
 	
 	
 }

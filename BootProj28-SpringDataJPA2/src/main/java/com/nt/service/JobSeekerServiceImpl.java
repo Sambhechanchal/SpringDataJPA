@@ -149,6 +149,14 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
 				return "JobSeeker Object is not found for deletion";
 				}
 		}
+	
+	@Override
+	public String regiterChunkOfJobSeeker(Iterable<JobSeeker> js) {
+		jobRepo.saveAll(js);
+		return "All object are saved";
+	}
 		
 	}
+
+
 

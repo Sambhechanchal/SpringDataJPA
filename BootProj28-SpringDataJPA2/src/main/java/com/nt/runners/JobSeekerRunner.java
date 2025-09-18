@@ -19,12 +19,28 @@ public class JobSeekerRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("JobSeekerRunner.run()");
 		//JobSeeker job= new JobSeeker("manvi","hyd","BE(CSE)",90000.0f);
-		JobSeeker job = new JobSeeker();
+		//JobSeeker job = new JobSeeker();
 		/*	String msg = seeker.regiterJobSeeker(job);
 			Iterable<JobSeeker> list = seeker.showAllJobSeeker();
 			list.forEach(System.out::println);
 			System.out.println(msg);
 			*/
+		try {
+		System.out.println("JobSeekerRunner.run()");
+		JobSeeker job1= new JobSeeker("kajal","amt","BE(CSE)",40000.0f);
+		JobSeeker job2= new JobSeeker("manu","delhi","BE(CSE)",70000.0f);
+		JobSeeker job3= new JobSeeker("vinu","pune","BE(CSE)",90000.0f);
+		JobSeeker job4= new JobSeeker("raksha","amt","BE(CSE)",80000.0f);
+		JobSeeker job5= new JobSeeker("shradhha","pune","BE(CSE)",75000.0f);
+		JobSeeker job6= new JobSeeker("shruti","mumbai","BE(CSE)",65000.0f);
+		//JobSeeker job = new JobSeeker();
+			String msg = seeker.regiterChunkOfJobSeeker(List.of(job1,job2,job3, job4,job5,job6));
+			Iterable<JobSeeker> list = seeker.showAllJobSeeker();
+			list.forEach(System.out::println);
+			System.out.println(msg);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		/*Iterable<JobSeeker> list = seeker.showAllJobSeekerByIds(List.of(1,1102,1001));
 		list.forEach(System.out::println);
@@ -86,14 +102,14 @@ public class JobSeekerRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}
 		*/
-		
-		try {
-			String msg  = seeker.removeAll();
-			System.out.println(msg);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+		/*	
+			try {
+				String msg  = seeker.removeAll();
+				System.out.println(msg);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			*/
 	}// main
 	
 
