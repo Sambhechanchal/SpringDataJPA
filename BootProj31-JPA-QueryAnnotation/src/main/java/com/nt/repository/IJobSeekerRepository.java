@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.nt.entity.JobSeeker;
+
+import jakarta.transaction.Transactional;
 
 public interface IJobSeekerRepository extends JpaRepository<JobSeeker, Integer>{
 
@@ -56,4 +59,28 @@ public interface IJobSeekerRepository extends JpaRepository<JobSeeker, Integer>{
 	
 	@Query("Select count(*), sum(expectedSalary) , min(expectedSalary), max(expectedSalary), avg(expectedSalary) FROM JobSeeker")
 	public Object getAggregateData();
+	
+	// non-select update operation
+	
+	@Query("update JobSeeker Set expectedSalary = expectedSalary+(expectedSalary *:percent/100.0) Where jsid =:id")
+	@Modifying
+	@Transactional   // mandatory otherwise query will not be execute 
+	public int jobSeekerExcepectSalaryInc(double percent , int id);
+	
+	// non-select delete query
+	@Query("delete From JobSeeker Where jsname =:name")
+	@Modifying
+	@Transactional
+	public int deleteJobSeekerByJsname(String name);
+	
+	// native Query SQL
+	@Query(value="Select sysdate from dual" , nativeQuery=true)
+	public String showSystemDateAndTime();
+	
+	@Query(value="create table Temperature6(degree Number(4), Farenhite Number(4))" , nativeQuery=true)
+	@Transactional
+	@Modifying
+	public int createTable();
+	
 }
+

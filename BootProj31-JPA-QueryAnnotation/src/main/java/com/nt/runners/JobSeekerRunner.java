@@ -79,7 +79,7 @@ public class JobSeekerRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}
 		*/
-		
+		/*
 		try {
 			System.out.println("Total Count of JobSeeker :: "+ jsRepo.getDistinctCount());
 			System.out.println("---------------------------------------------------");
@@ -89,6 +89,42 @@ public class JobSeekerRunner implements CommandLineRunner {
 			System.out.println("JobSeeker min of expectedSalary :: "+ obj[2]);
 			System.out.println("JobSeeker max of expectedSalary :: "+ obj[3]);
 			System.out.println("JobSeeker avg of expectedSalary :: "+ obj[4]);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		/*
+		try {
+			 System.out.println(jsRepo.jobSeekerExcepectSalaryInc(10.0, 2005));
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		/*
+		try {
+			int count= jsRepo.deleteJobSeekerByJsname("manu");
+			if(count>0) {
+				System.err.println(count + " no.of record found and deleted");
+			}else {
+				System.err.println("Record not found");
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		
+		try {
+			
+			System.err.println(jsRepo.showSystemDateAndTime());
+			int count = jsRepo.createTable();
+			if(count==0) {
+				System.err.println("Table is created");
+			}else {
+				System.err.println("Table not created");
+			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
