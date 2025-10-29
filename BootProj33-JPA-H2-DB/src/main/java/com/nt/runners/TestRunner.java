@@ -19,13 +19,15 @@ public class TestRunner implements CommandLineRunner {
 		/*
 		Integer a = 256987654;
 		Integer b = 256987654;
-		*/
+		
+		
 		String a = "Java";
 		String b = "JAva";
 		Doctor doc = new Doctor();
 		System.out.println(doc.hashCode());
 		System.out.println(a.hashCode()+"---"+b.hashCode());
-		/*
+		*/
+		
 		try {
 			System.out.println("In runner class");
 			Doctor doc1 = new Doctor("Jane Dr" , "multispecialist" , 100000.0);
@@ -45,7 +47,7 @@ public class TestRunner implements CommandLineRunner {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 }
